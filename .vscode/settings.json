@@ -1,0 +1,8 @@
+{
+    "files.readonlyInclude": {
+        ".yarn/**/*": true,
+        "node_modules/**/*": true
+    },
+    "typescript.preferences.importModuleSpecifierEnding": "js",
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+}

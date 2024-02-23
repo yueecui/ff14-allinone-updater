@@ -1,0 +1,44 @@
+{
+    "name": "ff14-allinone-updater",
+    "version": "1.0.0",
+    "description": "最终幻想XIV综合工具相关更新器",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "watch": "rimraf dist && tsc -w -p tsconfig.json",
+        "run index": "node ./dist/index.js",
+        "[MAP] 生成地图Tile": "node ./dist/map/genMapTiles.js",
+        "[MAP] 上传地图Tile": "node ./dist/map/uploadMapTiles.js",
+        "build": "rimraf dist && tsc -p tsconfig.json",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "syncyarn": "npx syncyarnlock --save --keepPrefix"
+    },
+    "author": "Yuee",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "@types/jsdom": "^21.1.6",
+        "@types/lodash-es": "^4.17.12",
+        "@types/node": "^20.11.20",
+        "@types/sharp": "^0.32.0",
+        "eslint": "^8.56.0",
+        "node-addon-api": "^7.1.0",
+        "prettier": "^3.2.5",
+        "rimraf": "^5.0.5",
+        "tslib": "^2.6.2",
+        "typescript": "^5.3.3",
+        "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz"
+    },
+    "dependencies": {
+        "axios": "^1.6.7",
+        "cos-nodejs-sdk-v5": "^2.13.1",
+        "dotenv": "^16.4.5",
+        "glob": "^10.3.10",
+        "huijiwiki-api": "^0.5.1",
+        "huijiwiki-api-sqlite-cache": "^0.5.0",
+        "jsdom": "^24.0.0",
+        "lodash-es": "^4.17.21",
+        "lowdb": "^7.0.1",
+        "p-queue": "^8.0.1",
+        "sharp": "^0.33.2"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+        "resolveJsonModule": true /* Enable importing .json files */,
+        "moduleResolution": "Node" /* Specify how TypeScript looks up a file from a given module specifier. */,
+        "outDir": "./dist" /* Specify an output folder for all emitted files. */,
+        "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */,
+        "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+        "strict": true /* Enable all strict type-checking options. */,
+        "skipLibCheck": true /* Skip type checking all .d.ts files. */,
+
+        /* DEBUG需要调整下面的参数 */
+        "module": "ESNext" /* Specify what module code is generated. */,
+        // "module": "commonjs" /* Specify what module code is generated. */,
+        "sourceMap": true /* Create source map files for emitted JavaScript files. */
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts"],
+    "exclude": ["node_modules", "dist"] /* Specify list of files to be excluded. */
+}
