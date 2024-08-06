@@ -1,6 +1,6 @@
 import { HuijiWiki } from 'huijiwiki-api';
 import { HuijiwikiSqliteCache } from 'huijiwiki-api-sqlite-cache';
-import { SQLITE_PATH, WIKI_PASSWORD, WIKI_PREFIX, WIKI_USERNAME } from '../config.js';
+import { SQLITE_PATH, WIKI_AUTH_TOKEN, WIKI_PASSWORD, WIKI_PREFIX, WIKI_USERNAME } from '../config.js';
 
 export class HuijiWikiConnector {
     private static instance: HuijiWikiConnector;
@@ -8,7 +8,7 @@ export class HuijiWikiConnector {
 
     private constructor() {
         const sqliteCache = new HuijiwikiSqliteCache(WIKI_PREFIX, SQLITE_PATH);
-        this.wiki = new HuijiWiki(WIKI_PREFIX, { cache: sqliteCache });
+        this.wiki = new HuijiWiki(WIKI_PREFIX, WIKI_AUTH_TOKEN, { cache: sqliteCache });
     }
 
     private async login() {

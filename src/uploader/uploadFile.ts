@@ -3,7 +3,7 @@ import { HuijiWiki } from 'huijiwiki-api';
 import { HuijiwikiSqliteCache } from 'huijiwiki-api-sqlite-cache';
 import { default as PQueue } from 'p-queue';
 import path from 'path';
-import { SQLITE_PATH, TO_BE_UPLOAD_PATH, WIKI_PASSWORD, WIKI_PREFIX, WIKI_USERNAME } from '../config';
+import { SQLITE_PATH, TO_BE_UPLOAD_PATH, WIKI_AUTH_TOKEN, WIKI_PASSWORD, WIKI_PREFIX, WIKI_USERNAME } from '../config';
 
 async function upload(wiki: HuijiWiki, fileName: string) {
     const filePath = `${TO_BE_UPLOAD_PATH}\\${fileName}`;
@@ -27,7 +27,7 @@ async function upload(wiki: HuijiWiki, fileName: string) {
 
 export const uploadFile = async () => {
     const sqliteCache = new HuijiwikiSqliteCache(WIKI_PREFIX, SQLITE_PATH);
-    const wiki = new HuijiWiki(WIKI_PREFIX, { cache: sqliteCache });
+    const wiki = new HuijiWiki(WIKI_PREFIX, WIKI_AUTH_TOKEN, { cache: sqliteCache });
     if (!(await wiki.apiLogin(WIKI_USERNAME, WIKI_PASSWORD))) {
         throw new Error('登录失败！');
     }

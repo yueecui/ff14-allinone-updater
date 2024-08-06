@@ -4,7 +4,7 @@ import { MWResponseBase } from 'huijiwiki-api/dist/HuijiWiki/typeMWApiResponse.j
 import { LowSync } from 'lowdb';
 import { JSONFileSync } from 'lowdb/node';
 import PQueue from 'p-queue';
-import { MAP_BAST_PATH, TILE_MAP_PATH, WIKI_PASSWORD, WIKI_PREFIX, WIKI_USERNAME } from '../config.js';
+import { MAP_BAST_PATH, TILE_MAP_PATH, WIKI_AUTH_TOKEN, WIKI_PASSWORD, WIKI_PREFIX, WIKI_USERNAME } from '../config.js';
 
 // ------------------------------
 // -- 参数配置
@@ -83,7 +83,7 @@ async function main() {
     }
 
     // 开始上传
-    const wiki = new HuijiWiki(WIKI_PREFIX);
+    const wiki = new HuijiWiki(WIKI_PREFIX, WIKI_AUTH_TOKEN);
     if (!(await wiki.apiLogin(WIKI_USERNAME, WIKI_PASSWORD))) {
         throw new Error('登录失败！');
     }
@@ -160,7 +160,7 @@ function generateTileInfos() {
 
 // 在wiki检查哪些图片已上传
 async function checkUploadedTiles(tileInfos: TileInfo[]) {
-    const wiki = new HuijiWiki(WIKI_PREFIX);
+    const wiki = new HuijiWiki(WIKI_PREFIX, WIKI_AUTH_TOKEN);
 
     // 每50个文件一次请求
     const chunkSize = 50;

@@ -19,6 +19,7 @@ export const TILE_MAP_PATH = `${MAP_BAST_PATH}\\tiles`;
 export const WIKI_PREFIX = 'ff14';
 export const WIKI_USERNAME = process.env.WIKI_USERNAME!;
 export const WIKI_PASSWORD = process.env.WIKI_PASSWORD!;
+export const WIKI_AUTH_TOKEN = process.env.WIKI_AUTH_TOKEN!;
 
 /** 是否输出无内容的LEVEL */
 export const LEVEL_DATA_DEBUG = true;
